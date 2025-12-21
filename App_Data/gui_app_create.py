@@ -538,10 +538,9 @@ class Create_Data(ctk.CTkFrame):
             ax = fig.add_subplot()
             ax.set_facecolor('#2b2b2b')
 
-            # Marco alrededor de todas las barras
             for spine in ax.spines.values():
-                spine.set_edgecolor("#333333")  # color del marco
-                spine.set_linewidth(2)        # grosor
+                spine.set_edgecolor("#333333") 
+                spine.set_linewidth(2)   
 
             gradient = np.linspace(0, 1, 256).reshape(1, -1) 
             for i, (label, value) in enumerate(zip(tickers_list, tickers_var)):
@@ -574,8 +573,6 @@ class Create_Data(ctk.CTkFrame):
             x_min = min(tickers_var) * 1.1 if min(tickers_var) < 0 else 0
             x_max = max(tickers_var) * 1.1
             ax.set_xlim(x_min, x_max)
-
-         
 
             #clean frame
             for widget in self.frame_center.winfo_children():
