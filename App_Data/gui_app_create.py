@@ -23,7 +23,7 @@ class Create_Data(ctk.CTkFrame):
 
     
 
-    def __init__(self, root_gui, *args, **kwargs):
+    def __init__(self, root_gui, window_name, *args, **kwargs):
         super().__init__(root_gui, *args, **kwargs)
 
         self.id = StringVar()
@@ -42,6 +42,7 @@ class Create_Data(ctk.CTkFrame):
         self.column_num = 6
         self.current_date_str = StringVar()
         self.last_date_str = StringVar()
+        self.window_name = window_name
         
 
         ctk.FontManager.load_font("App_Data/Inter.ttc")
@@ -450,7 +451,19 @@ class Create_Data(ctk.CTkFrame):
 
         self.current_date_str.set("")
         self.last_date_str.set("")
+        self.update_window_title()
 
+
+    
+    def update_window_title(self):
+        
+        self.get_db_name = app_data_base.Connect_BBDD()
+        self.db_name = self.get_db_name.get_name_db()
+        if self.db_name:
+            self.window_name(self.db_name)
+        else:
+            self.window_name("No Database Connected")
+        
 
 
     @deco_function
@@ -667,7 +680,8 @@ class Create_Data(ctk.CTkFrame):
                     print(f"Warning deleting row {j}: {e}")
 
             for widget in self.frame_center.winfo_children():
-                widget.destroy()  
+                widget.destroy()
+            self.update_window_title()  
         else:
             return
             
@@ -681,6 +695,7 @@ class ToplevelWindow(ctk.CTkToplevel):
 
         self.withdraw()
         self.configure(fg_color="#333333")
+        self.title("Update")
 
         self.geometry("300x685")
         self.resizable(False, False)
@@ -772,6 +787,7 @@ class ToplevelWindowI(ctk.CTkToplevel):
 
         self.withdraw()
         self.configure(fg_color="#333333")
+        self.title("Connect")
 
         self.geometry("400x500")
         self.resizable(False, False)
@@ -837,6 +853,7 @@ class ToplevelWindowI(ctk.CTkToplevel):
         self.row_selector = CTkTableRowSelector(self.table_output, can_select_headers=False, max_selection=True)
        
 
+
     #Create connection
     def create_bbdd_connection(self, row_selector_bbdd, name, event):
 
@@ -873,6 +890,7 @@ class ToplevelWindowI(ctk.CTkToplevel):
             return
         
 
+        
 
     def data_base_list(self, table_output, row_selector_bbdd):
 
@@ -1053,6 +1071,7 @@ class ToplevelWindowII(ctk.CTkToplevel):
 
         self.withdraw()
         self.configure(fg_color="#333333")
+        self.title("Graph")
 
         self.geometry("400x500")
         self.resizable(False, False)

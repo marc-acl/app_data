@@ -219,8 +219,19 @@ class Connect_BBDD():
             return True
         else:
             return False
-            
+        
 
+    def get_name_db(self):
+        if self.db_name is None:
+            return ""
+        else:
+            name = self.db_name.split("/", 1)[1]
+            return name
+    
+
+    def set_name_db(self, name):
+        self.db_name = name
+            
 
     def close(self):
         if self.connection:
