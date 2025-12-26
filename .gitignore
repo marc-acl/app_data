@@ -1,8 +1,0 @@
-*
-
-!App_Data/
-!MANIFEST.in
-!setup.py
-
-App_Data/__pycache__/
-App_Data/*.pyc
