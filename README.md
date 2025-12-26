@@ -1,3 +1,7 @@
+<b>App Data</b> is a Python-based desktop application with a local relational database powered by SQLite3. It allows users to create databases that track stock market shares, calculating the percentage change in each stock’s price based on the start and end dates provided by the user.
+
+The application generates charts that aggregate stock data and compute an average percentage change, offering a consolidated metric that can help assess the risk associated with each stock.
+
 <p>
 <img width="1919" height="1012" alt="Captura de pantalla 2025-12-21 231848" src="https://github.com/user-attachments/assets/cd9dc0c1-a5e9-4001-966e-190c6e06dfa9" />
 </p>
@@ -29,3 +33,14 @@
 <p>
   <img width="1919" height="1017" alt="Captura de pantalla 2025-12-26 110509" src="https://github.com/user-attachments/assets/de69f194-bca4-4342-95d1-630ccf9852df" />
 </p>
+
+The graphical user interface (GUI) was designed using the CustomTkinter UI-library.
+[Tom Schimansky](https://github.com/TomSchimansky)
+
+<p>
+<b>GUI Libraries</b>
+</p>
+
+[Akash Bora - CTkTable](https://github.com/Akascape/CTkTable)
+
+[CallMePixelMan - CTkTableRowSelector](https://github.com/CallMePixelMan/CTkTableRowSelector)
